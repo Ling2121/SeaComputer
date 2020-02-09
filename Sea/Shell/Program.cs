@@ -24,7 +24,7 @@ namespace Sea
             }
         }
 
-        virtual public Object Exec(Computer computer,Shell shell,params object[]args){
+        virtual public Object Exec(Computer computer,Shell shell,object[] args){
             var run = script.state.GetFunction("run");
             if(run != null)
             {
