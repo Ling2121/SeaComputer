@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaComputer", "SeaComputer.csproj", "{6B46576E-EE73-4A52-8585-3960F27565A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaComputer", "SeaComputer.csproj", "{157C9717-D2A5-46D5-ABE0-B411E747C4E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	Tools|Any CPU = Tools|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6B46576E-EE73-4A52-8585-3960F27565A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B46576E-EE73-4A52-8585-3960F27565A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B46576E-EE73-4A52-8585-3960F27565A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B46576E-EE73-4A52-8585-3960F27565A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B46576E-EE73-4A52-8585-3960F27565A5}.Tools|Any CPU.ActiveCfg = Tools|Any CPU
-		{6B46576E-EE73-4A52-8585-3960F27565A5}.Tools|Any CPU.Build.0 = Tools|Any CPU
+		{157C9717-D2A5-46D5-ABE0-B411E747C4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{157C9717-D2A5-46D5-ABE0-B411E747C4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{157C9717-D2A5-46D5-ABE0-B411E747C4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{157C9717-D2A5-46D5-ABE0-B411E747C4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{157C9717-D2A5-46D5-ABE0-B411E747C4E2}.Tools|Any CPU.ActiveCfg = Tools|Any CPU
+		{157C9717-D2A5-46D5-ABE0-B411E747C4E2}.Tools|Any CPU.Build.0 = Tools|Any CPU
 	EndGlobalSection
 EndGlobal

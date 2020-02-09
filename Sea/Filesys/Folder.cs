@@ -5,6 +5,9 @@ namespace Sea
 {
     public class Folder : FileTreeNode
     {
+        public Folder(){}
+        public Folder(String name){this.name = name;}
+
         override public bool AddChild(FileTreeNode node)
         {
             childs[node.name] = node;
