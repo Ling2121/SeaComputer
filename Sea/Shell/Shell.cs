@@ -14,20 +14,10 @@ namespace Sea
         public FileTreeNode filenode = null;
         public Queue msg = new Queue(512);
 
-        public Shell()
-        {
-            Connect(nameof(s_PushMsg),this,"__PushMsg__");
-        }
-
         public void PushMsg(String str)
         {
             msg.Enqueue(str);
             EmitSignal(nameof(s_PushMsg),str);
-        }
-
-        public void __PushMsg__(String msg)
-        {
-            GD.Print(msg);
         }
 
         public Program FindProgram(String name)
@@ -69,7 +59,7 @@ namespace Sea
                 }
                 else
                 {
-                    GD.Print("找不到指令:",prog_name);
+                    PushMsg("找不到指令:"+ prog_name);
                 }
             }
         }

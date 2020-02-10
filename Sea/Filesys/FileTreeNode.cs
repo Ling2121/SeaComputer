@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using NLua;
 
 namespace Sea
 {
@@ -45,6 +46,17 @@ namespace Sea
         virtual public Hashtable GetChilds()
         {
             return childs;
+        }
+
+        virtual public LuaTable GetChildsToTable(Lua state)
+        {
+            state.NewTable("a");
+            LuaTable table = state.GetTable("a");
+            foreach(FileTreeNode child in childs.Values)
+            {
+                table[child.name] = child;
+            }
+            return table;
         }
     }
 }

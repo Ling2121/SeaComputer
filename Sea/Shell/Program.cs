@@ -1,5 +1,7 @@
 using System.Collections;
 using System;
+using Godot;
+
 namespace Sea
 {
     public class Program : File
@@ -24,11 +26,12 @@ namespace Sea
             }
         }
 
-        virtual public Object Exec(Computer computer,Shell shell,object[] args){
+        virtual public System.Object Exec(Computer computer,Shell shell,object[] args){
+            script.state.DoString(script.code);
             var run = script.state.GetFunction("run");
             if(run != null)
             {
-                var ret = run.Call(computer,shell,args);
+                var ret = run.Call(script.state,(Computer)computer,(Shell)shell,args);
                 return ret;
             }
             return null;
