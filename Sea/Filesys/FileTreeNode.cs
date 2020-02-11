@@ -41,22 +41,27 @@ namespace Sea
 
         virtual public FileTreeNode RemoveChild(String name){return null;}
 
-        virtual public bool HasChild(String name){return false;}
+        virtual public bool HasChild(String name){
+            return childs.Contains(name);
+        }
 
         virtual public Hashtable GetChilds()
         {
             return childs;
         }
 
-        virtual public LuaTable GetChildsToTable(Lua state)
+        virtual public FileTreeNode GetChild(String name)
         {
-            state.NewTable("a");
-            LuaTable table = state.GetTable("a");
-            foreach(FileTreeNode child in childs.Values)
+            if(HasChild(name))
             {
-                table[child.name] = child;
+                return (FileTreeNode)childs[name];
             }
-            return table;
+            return null;
+        }
+
+        virtual public bool HasParent()
+        {
+            return parent != null;
         }
     }
 }

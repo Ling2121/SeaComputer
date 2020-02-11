@@ -5,7 +5,7 @@ namespace Sea
 {
     public class LuaScript : Godot.Object
     {
-        public String code = "";
+        public String code = "print(\"no script\")";
         public Lua state = new Lua();
         
         public LuaScript(){}

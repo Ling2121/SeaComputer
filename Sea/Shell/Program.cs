@@ -1,12 +1,13 @@
 using System.Collections;
 using System;
 using Godot;
+using NLua;
 
 namespace Sea
 {
     public class Program : File
     {
-        LuaScript script = null;
+        public Lua state = new Lua();
 
         public Program(){}
         public Program(String code)
@@ -14,27 +15,50 @@ namespace Sea
            SetScript(code);
         }
 
-        void SetScript(String code)
+        public void SetScript(String code)
         {
-            if(script == null)
-            {
-                script = new LuaScript(code);
-            }
-            else
-            {
-                script.code = code;
-            }
+            text = code;
         }
 
-        virtual public System.Object Exec(Computer computer,Shell shell,object[] args){
-            script.state.DoString(script.code);
-            var run = script.state.GetFunction("run");
-            if(run != null)
+        public String GetSctipt()
+        {
+            return text;
+        }
+
+        virtual public LuaTable ArrayToLuaTable(LuaTable arr,String[] csarr)
+        {
+            int idx = 1;
+            foreach(String i in csarr)
             {
-                var ret = run.Call(script.state,(Computer)computer,(Shell)shell,args);
-                return ret;
+                arr[idx] = i;
+                idx++;
             }
-            return null;
+            return arr;
+        }
+
+        virtual public System.Object Exec(Computer computer,Shell shell,String[] args)
+        {
+            state["tools"] = computer.lua_tools;
+            state["shell"] = shell;
+            state["computer"] = computer;
+            state.DoString(@"
+                function print(str)
+                    shell:PushMsg(str)
+                end
+            ");
+            state.NewTable("args");
+            LuaTable a = state.GetTable("args");
+            object[] ret = null;
+            try
+            {
+                ret = state.DoString(text);
+            }
+            catch (NLua.Exceptions.LuaScriptException emm)
+            {
+                shell.PushMsg(emm.Message);
+            }
+
+            return ret;
         }
     }
 }

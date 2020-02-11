@@ -1,4 +1,5 @@
 using System;
+using Godot;
 using System.Collections;
 
 namespace Sea
@@ -25,16 +26,6 @@ namespace Sea
                 return child;
             }
             return null;
-        }
-
-        override public bool HasChild(String name)
-        {
-            return childs.Contains(name);
-        }
-
-        override public Hashtable GetChilds()
-        {
-            return childs;
         }
     }
 }
